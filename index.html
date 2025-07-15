@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zradio Web</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/mziyadam/Beranda/master/profildiri.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<style>
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+
+  #app {
+    font-family: 'Jost', 'Courier New', Courier, monospace;
+  }
+
+  .color1 {
+    color: #347433;
+  }
+
+  .color2 {
+    color: #FFC107;
+  }
+
+  .color3 {
+    color: #FF6F3C;
+  }
+
+  .color4 {
+    color: #B22222;
+  }
+
+  .bg-color1 {
+    background-color: #347433;
+  }
+
+  .bg-color2 {
+    background: #FFC107;
+  }
+
+  .bg-color3 {
+    background: #FF6F3C;
+  }
+
+  .bg-color4 {
+    background: #B22222;
+  }
+</style>
+<div id="app" style="overflow-y: hidden;">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-color1">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://mziyadam.github.io/profile/"><b>Admin Z</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a @click="type='Home'" :class="['nav-link',type==='Home'? 'active':'']" aria-current="page"
+              href="#">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" target="_blank"
+              href="https://www.mango.org/recipes/">Recipes</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a @click="type='Blogs'" :class="['nav-link',type==='Blogs'? 'active':'']" href="#">Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a @click="type='Recipes'" :class="['nav-link',type==='Recipes'? 'active':'']" href="#">Recipes</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" target="_blank"
+              href="https://api.whatsapp.com/send/?phone=6285889168150&text=Hello,%20I’d%20like%20to%20ask%20some%20questions%20about%20mangoes.">Contact</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" target="_blank" :href="''+profile.linkedinUrl"><i class="bi bi-linkedin"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" :href="''+profile.githubUrl"><i class="bi bi-github"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" :href="''+profile.mediumUrl"><i class="bi bi-medium"></i></a>
+          </li> -->
+        </ul>
+        <!-- <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+      </div>
+    </div>
+  </nav>
+  <div class=" text-center align-middle p-0 m-0">
+    <Transition name="slide-fade">
+      <div class="" v-if="type === 'Home'">
+        <div class="text-start p-5 ">
+          <div class="row">
+            <div class="col-md-8 d-flex align-items-center justify-content-start">
+              <div class="pe-5">
+                <h1>Try Mango!</h1>
+                <h5>Find mangoes around you, and discover interesting facts as well as recipes for the best ways to
+                  enjoy mangoes.</p>
+
+                  <a class="btn btn-light bg-color3 text-light" target="_blank"
+                    href="https://api.whatsapp.com/send/?phone=6285889168150&text=Hello,%20I’d%20like%20to%20ask%20some%20questions%20about%20the%20availability%20of%20mangoes."><b>Buy
+                      Now</b></a>
+
+
+              </div>
+            </div>
+            <div class="col-md-4">
+              <img class="img-fluid" src="img/bg-home-right-1.webp" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="text-start p-5 bg-color2">
+          <div class="row">
+            <div class="col-md-6">
+
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/pGLUt_kBXj0?si=Z8i-UNG83rctFwAf" title="YouTube video player"
+                  allowfullscreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
+                </iframe>
+              </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center text-end justify-content-end">
+              <div class="pe-5">
+                <h1>How to Cut a Mango?</h1>
+                <h5>Take a look at the video!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+
+          <div class="text-center p-5 ">
+            <h1>Meet Our Team!</h1>
+
+          </div>
+          <div class="row ms-2 me-2">
+            <div class="col-md-3" v-for="(mango,index) in sortedMangos" :key="mango.name">
+
+              <div class="card mb-4">
+                <img :src="mango.img" class="card-img-top img-fluid" alt="" style="max-height: 160px; /* or any value you like */
+                  object-fit: cover;
+                  width: 100%;">
+                <div class="card-body">
+                  <h5 class="card-title">{{mango.name}}</h5>
+                  <button class="btn btn-light bg-color1" @click="openModal(mango)">
+                    <b class="text-light">Details</b></button>
+<button 
+          class="btn btn-light ms-1" 
+          :class="mango.isAvailable ? 'bg-color3' : 'bg-color4'" 
+          :disabled="!mango.isAvailable">
+          <a style=" text-decoration: none;"
+  :href="`https://api.whatsapp.com/send/?phone=6285889168150&text=Hello,%20I’d%20like%20to%20ask%20some%20questions%20about%20the%20availability%20of%20${mango.name}`"
+><b :class="mango.isAvailable ? 'text-light' : ''" >{{ mango.isAvailable ? 'Buy Now' : 'Out of Stocks' }}</b>
+          
+</a>
+          
+        </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-else-if="type === 'About'">
+      </div>
+    </Transition>
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="text-muted">{{copyrightText}}</span>
+        </div>
+      </footer>
+    </div>
+
+    <div class="modal fade" id="mangoModal" tabindex="-1" aria-labelledby="mangoModalLabel" aria-hidden="true"
+      ref="mangoModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mangoModalLabel">{{ selectedMango.name }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <img :src="selectedMango.img" class="img-fluid rounded mb-2" alt="">
+            {{ selectedMango.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        selectedMango: {},
+        type: 'Home',
+        stationId: 46,
+        data: null,
+        searchText: null,
+        isNotSearched: true,
+        copyrightText: 'Muhammad Ziyad Al Maududi - 2025',
+        ready: [
+          'Arumanis',
+        ],
+        sortedMangos:[],
+        mangos: [
+          {
+            name: "Arumanis",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-arumanis.jpg.webp",
+            description: "The Arumanis variety, also known as Harumanis, is native to Indonesia and also grown in parts of Malaysia. It has a sweet and distinctive aroma, which is why it’s named Arumanis. Its skin stays green even when ripe, the shape is elongated and large, the flesh is yellow with a very characteristic mango aroma, and it tastes sweet with a slightly bitter aftertaste."
+          },
+          {
+            name: "Gedong",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-gedong.jpg.webp",
+            description: "Gedong Gincu mango has a very sweet taste when ripe. The size is not too big, almost round with a slightly oval shape. The green skin turns yellowish when ripe and is often harvested when about 80% ripe, so there's still some green on the skin."
+          },
+          {
+            name: "Manalagi",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-manalagi.jpg.webp",
+            description: "Manalagi, also known as honey mango, mainly comes from East Java. It is small to medium in size, has thick green skin with white spots, thick flesh, and a strong sweet taste with almost no sourness, making it a favorite among people."
+          },
+          {
+            name: "Apel",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-apel.jpg.webp",
+            description: "The Apel mango has a round shape like an apple, with green, reddish, or red skin. It has thicker flesh and is especially sweet in the red type. It is also popular as a potted plant (tambulampot)."
+          },
+          {
+            name: "Golek",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-golek.jpg.webp",
+            description: "Golek mango has thick, soft flesh that is not fibrous and doesn’t produce much juice when cut. The skin is green when young and yellow when ripe. It has a sweet taste and a characteristic aroma, with a large and long shape."
+          },
+          {
+            name: "Kweni",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-kweni.jpg.webp",
+            description: "Kweni mango is known for its strong aroma, smaller size, smooth and soft flesh, and a fresh sour taste with a hint of sweetness. Often used in cooking or fruit salads (rujak)."
+          },
+          {
+            name: "Cengkir",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-cengkir.jpg.webp",
+            description: "Popular in Indramayu, Cengkir mango is large with thick flesh, sweet taste, and a slight sourness. It can also be eaten when still firm (semi-ripe)."
+          },
+          {
+            name: "Emperor",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-emperor.jpg.webp",
+            description: "Originating from Taiwan and cultivated in Thailand. The skin is purple-green when young and red when ripe. The flesh is sweet, soft, juicy, and the fruit can weigh up to 3 kg."
+          },
+          {
+            name: "Garifta",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-garifta.jpg.webp",
+            description: "A new variety from Pasuruan. There are red, yellow, orange, and ivory Garifta types. It has a sweeter taste, attractive appearance, and is only cultivated in its region of origin to maintain quality."
+          },
+          {
+            name: "Gandaria",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-gandaria.jpg.webp",
+            description: "Belongs to the mango family, found widely in ASEAN. The skin is green when young and turns yellow-orange when ripe. It has a sweet-sour fresh taste and can be eaten with the skin when ripe."
+          },
+          {
+            name: "Kiojay",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-kiojay.jpg.webp",
+            description: "From Thailand, it is jumbo-sized and can weigh up to 2 kg. The flesh is sweet and fragrant, often compared to Arumanis. It is easy to grow and can be planted in pots."
+          },
+          {
+            name: "Budiraja",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-budiraja.jpg.webp",
+            description: "Also known as Raja mango, mainly found in East Java. It has a long shape, thick flesh, sweet and fragrant aroma, and green skin."
+          },
+          {
+            name: "Saigon",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-saigon.jpg.webp",
+            description: "Often used as a parent for hybridization because of its strong tree. Large size, round slightly curved shape, green skin turns yellow when ripe. The flesh is thick and not too aromatic."
+          },
+          {
+            name: "Alpukat",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-alpuket.jpg.webp",
+            description: "Called 'Avocado' mango because it is eaten like an avocado: cut in half and the seed is easy to separate. An Arumanis variety with sweet and fragrant flesh, eaten directly with a spoon when ripe."
+          },
+          {
+            name: "Chokanan",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-chokanan.jpg.webp",
+            description: "Originates from Thailand, with a honey-like sweet taste. Long shape with yellow skin. Can be eaten ripe or still slightly unripe since it’s already sweet. Easy to cultivate, even in pots."
+          },
+          {
+            name: "Irwin",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-manga-irwin.jpg.webp",
+            description: "A hybrid of Darwin (Australia) and local varieties. It has reddish-purple skin and sweet flesh with a slight sourness. Very popular in the market and has a high selling price."
+          },
+          {
+            name: "Mahatir",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-mahatir.jpg.webp",
+            description: "Originating from Malaysia, it is jumbo-sized and can weigh up to 3 kg. The flesh is thick, soft, sweet, with a small seed. The tree is not tall but produces large and abundant fruit, suitable for home gardens."
+          },
+          {
+            name: "Yuwen",
+            img: "img/18-jenis-varietas-buah-mangga-beserta-keunggulannya-mangga-yuwen.jpg.webp",
+            description: "Originating from Taiwan, it has a high price. Attractive red skin, thick flesh, small seed, and a sweet-sour taste. It is not yet widely cultivated in Indonesia."
+          }
+        ]
+      }
+    },
+    methods: {
+      async fetchData() {
+        this.data = null
+        const res = await fetch(
+          `https://www.mango.org/wp-json/wp/v2/recipes`
+        )
+        this.data = await res.json()
+      },
+      filterSearch(query, data) {
+        return data.initials.toLowerCase().includes(query) || data.name.toLowerCase().includes(query)
+      },
+
+      openModal(mango) {
+        this.selectedMango = mango;
+        // Open modal manually using Bootstrap
+        const modal = new bootstrap.Modal(this.$refs.mangoModal);
+        modal.show();
+      },
+
+      sortMangos() {
+        this.sortedMangos=this.mangos
+          .map(mango => ({
+            ...mango,
+            isAvailable: this.ready.includes(mango.name) // remove "Mangga " prefix when checking
+          }))
+          .sort((a, b) => {
+            // Available first
+            if (a.isAvailable === b.isAvailable) return 0;
+            return a.isAvailable ? -1 : 1;
+          });
+      },
+    },
+    computed: {
+      sortedMangos() {
+        return this.mangos
+          .map(mango => ({
+            ...mango,
+            // isAvailable: this.ready.includes(mango.name) // remove "Mangga " prefix when checking
+          }))
+          .sort((a, b) => {
+            // Available first
+            if (a.isAvailable === b.isAvailable) return 0;
+            return a.isAvailable ? -1 : 1;
+          });
+      },
+      filteredItems() {
+        let stations = this.$data
+        // if there is no filter, return everything
+        if (!this.search) return stations
+
+        // setup the filter function
+        let searchValue = this.searchText.toLowerCase()
+        let filter = stations => stations.initials.toLowerCase().includes(searchValue) ||
+          stations.name.toLowerCase().includes(searchValue)
+        console.log(stations)
+        return stations.filter(filter)
+      }
+    },
+    mounted() {
+      this.fetchData()
+      this.sortMangos()
+    }
+  }).mount('#app')
+</script>
+
+
+</html>
