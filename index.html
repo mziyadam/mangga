@@ -20,6 +20,22 @@
 </head>
 <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 <style>
+  .mango-img {
+  width: 100%;
+  object-fit: cover;
+  max-height: 160px; /* default for large screens */
+}
+@media (max-width: 1300px) {
+  .mango-img {
+    max-height: 90px; /* for medium screens (Bootstrap md breakpoint) */
+  }
+}
+
+@media (max-width: 767px) {
+  .mango-img {
+    max-height: 160px; /* for small screens/phones */
+  }
+}
   ::-webkit-scrollbar {
     width: 20px;
   }
@@ -128,7 +144,7 @@
         <div class="text-start p-5 ">
           <div class="row">
             <div class="col-md-8 d-flex align-items-center justify-content-start">
-              <div class="pe-5">
+              <div class="">
                 <h1>Try Mango!</h1>
                 <h5>Find mangoes around you, and discover interesting facts as well as recipes for the best ways to
                   enjoy mangoes.</p>
@@ -149,7 +165,7 @@
           <div class="row">
             <div class="col-md-6">
 
-              <div class="ratio ratio-16x9">
+              <div class="ratio ratio-16x9 mb-2 mt-2">
                 <iframe src="https://www.youtube.com/embed/pGLUt_kBXj0?si=Z8i-UNG83rctFwAf" title="YouTube video player"
                   allowfullscreen
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
@@ -157,7 +173,7 @@
               </div>
             </div>
             <div class="col-md-6 d-flex align-items-center text-end justify-content-end">
-              <div class="pe-5">
+              <div class="">
                 <h1>How to Cut a Mango?</h1>
                 <h5>Take a look at the video!</p>
               </div>
@@ -174,9 +190,7 @@
             <div class="col-md-3" v-for="(mango,index) in sortedMangos" :key="mango.name">
 
               <div class="card mb-4">
-                <img :src="mango.img" class="card-img-top img-fluid" alt="" style="max-height: 160px; /* or any value you like */
-                  object-fit: cover;
-                  width: 100%;">
+                <img :src="mango.img" class="card-img-top img-fluid mango-img" alt="" >
                 <div class="card-body">
                   <h5 class="card-title">{{mango.name}}</h5>
                   <button class="btn btn-light bg-color1" @click="openModal(mango)">
