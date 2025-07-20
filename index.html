@@ -103,6 +103,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
+            <a class="nav-link"
+              href="#">
+            </a>
+          </li>
+          <li class="nav-item">
             <a @click="type='Home'" :class="['nav-link',type==='Home'? 'active':'']" aria-current="page"
               href="#">Home</a>
           </li>
@@ -121,6 +126,42 @@
             <a class="nav-link" target="_blank"
               href="https://api.whatsapp.com/send/?phone=6285889168150&text=Hello,%20I’d%20like%20to%20ask%20some%20questions%20about%20mangoes.">Contact</a>
           </li>
+
+<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            
+            <img
+  src="https://flagcdn.com/16x12/id.png"
+  srcset="https://flagcdn.com/32x24/id.png 2x,
+    https://flagcdn.com/48x36/id.png 3x"
+  width="16"
+  height="12"
+  alt="
+  Indonesian">
+  Indonesian
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">
+            <img
+  src="https://flagcdn.com/16x12/id.png"
+  srcset="https://flagcdn.com/32x24/id.png 2x,
+    https://flagcdn.com/48x36/id.png 3x"
+  width="16"
+  height="12"
+  alt="
+  Indonesian">
+  Indonesian</a></li>
+            <li><a class="dropdown-item" href="#">
+            <img
+  src="https://flagcdn.com/16x12/gb.png"
+  srcset="https://flagcdn.com/32x24/gb.png 2x,
+    https://flagcdn.com/48x36/gb.png 3x"
+  width="16"
+  height="12"
+  alt="English">
+  English</a></li>
+          </ul>
+        </li>
           <!-- <li class="nav-item">
             <a class="nav-link" target="_blank" :href="''+profile.linkedinUrl"><i class="bi bi-linkedin"></i></a>
           </li>
@@ -184,7 +225,8 @@
 
           <div class="text-center p-5 ">
             <h1>Meet Our Team!</h1>
-
+            {{language}}
+            <button @click="this.language='en'"></button>
           </div>
           <div class="row ms-2 me-2">
             <div class="col-md-3" v-for="(mango,index) in sortedMangos" :key="mango.name">
@@ -255,8 +297,10 @@
         searchText: null,
         isNotSearched: true,
         copyrightText: 'Muhammad Ziyad Al Maududi - 2025',
+        language:'id',
         ready: [
           'Arumanis',
+          'Manalagi'
         ],
         sortedMangos:[],
         mangos: [
@@ -411,7 +455,16 @@
         return stations.filter(filter)
       }
     },
+  watch: {
+    language(newLanguage) {
+      localStorage.language = newLanguage;
+    }
+  },
     mounted() {
+
+    if (localStorage.language) {
+      this.language = localStorage.language;
+    }
       // this.fetchData()
       this.sortMangos()
     }
