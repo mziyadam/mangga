@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mangga</title>
- <link rel="icon" type="image/png" href="img/mango.png">
+  <link rel="icon" type="image/png" href="img/mango.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -21,21 +21,26 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 <style>
   .mango-img {
-  width: 100%;
-  object-fit: cover;
-  max-height: 160px; /* default for large screens */
-}
-@media (max-width: 1300px) {
-  .mango-img {
-    max-height: 90px; /* for medium screens (Bootstrap md breakpoint) */
+    width: 100%;
+    object-fit: cover;
+    max-height: 160px;
+    /* default for large screens */
   }
-}
 
-@media (max-width: 767px) {
-  .mango-img {
-    max-height: 160px; /* for small screens/phones */
+  @media (max-width: 1300px) {
+    .mango-img {
+      max-height: 90px;
+      /* for medium screens (Bootstrap md breakpoint) */
+    }
   }
-}
+
+  @media (max-width: 767px) {
+    .mango-img {
+      max-height: 160px;
+      /* for small screens/phones */
+    }
+  }
+
   ::-webkit-scrollbar {
     width: 20px;
   }
@@ -103,8 +108,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link"
-              href="#">
+            <a class="nav-link" href="#">
             </a>
           </li>
           <li class="nav-item">
@@ -113,8 +117,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" target="_blank"
-              href="https://www.mango.org/recipes/">Recipes</a>
+            <a class="nav-link" target="_blank" href="https://www.mango.org/recipes/">Recipes</a>
           </li>
           <!-- <li class="nav-item">
             <a @click="type='Blogs'" :class="['nav-link',type==='Blogs'? 'active':'']" href="#">Blogs</a>
@@ -127,41 +130,34 @@
               href="https://api.whatsapp.com/send/?phone=6285889168150&text=Hello,%20I’d%20like%20to%20ask%20some%20questions%20about%20mangoes.">Contact</a>
           </li>
 
-<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            
-            <img
-  src="https://flagcdn.com/16x12/id.png"
-  srcset="https://flagcdn.com/32x24/id.png 2x,
-    https://flagcdn.com/48x36/id.png 3x"
-  width="16"
-  height="12"
-  alt="
+          <li class="nav-item dropdown">
+            <a  class="nav-link dropdown-toggle" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <span v-if="this.language=='id'">
+
+              <img src="https://flagcdn.com/16x12/id.png" srcset="https://flagcdn.com/32x24/id.png 2x,
+    https://flagcdn.com/48x36/id.png 3x" width="16" height="12" alt="
   Indonesian">
-  Indonesian
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">
-            <img
-  src="https://flagcdn.com/16x12/id.png"
-  srcset="https://flagcdn.com/32x24/id.png 2x,
-    https://flagcdn.com/48x36/id.png 3x"
-  width="16"
-  height="12"
-  alt="
+              Indonesian
+              </span>
+              <span v-if="this.language=='en'">
+              <img src="https://flagcdn.com/16x12/gb.png" srcset="https://flagcdn.com/32x24/gb.png 2x,
+    https://flagcdn.com/48x36/gb.png 3x" width="16" height="12" alt="English">
+              English
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" @click="this.language='id'" href="#">
+                  <img src="https://flagcdn.com/16x12/id.png" srcset="https://flagcdn.com/32x24/id.png 2x,
+    https://flagcdn.com/48x36/id.png 3x" width="16" height="12" alt="
   Indonesian">
-  Indonesian</a></li>
-            <li><a class="dropdown-item" href="#">
-            <img
-  src="https://flagcdn.com/16x12/gb.png"
-  srcset="https://flagcdn.com/32x24/gb.png 2x,
-    https://flagcdn.com/48x36/gb.png 3x"
-  width="16"
-  height="12"
-  alt="English">
-  English</a></li>
-          </ul>
-        </li>
+                  Indonesian</a></li>
+              <li><a class="dropdown-item" @click="this.language='en'" href="#">
+                  <img src="https://flagcdn.com/16x12/gb.png" srcset="https://flagcdn.com/32x24/gb.png 2x,
+    https://flagcdn.com/48x36/gb.png 3x" width="16" height="12" alt="English">
+                  English</a></li>
+            </ul>
+          </li>
           <!-- <li class="nav-item">
             <a class="nav-link" target="_blank" :href="''+profile.linkedinUrl"><i class="bi bi-linkedin"></i></a>
           </li>
@@ -225,29 +221,26 @@
 
           <div class="text-center p-5 ">
             <h1>Meet Our Team!</h1>
-            {{language}}
-            <button @click="this.language='en'"></button>
           </div>
           <div class="row ms-2 me-2">
             <div class="col-md-3" v-for="(mango,index) in sortedMangos" :key="mango.name">
 
               <div class="card mb-4">
-                <img :src="mango.img" class="card-img-top img-fluid mango-img" alt="" >
+                <img :src="mango.img" class="card-img-top img-fluid mango-img" alt="">
                 <div class="card-body">
                   <h5 class="card-title">{{mango.name}}</h5>
                   <button class="btn btn-light bg-color1" @click="openModal(mango)">
                     <b class="text-light">Details</b></button>
-<button 
-          class="btn btn-light ms-1" 
-          :class="mango.isAvailable ? 'bg-color3' : 'bg-color4'" 
-          :disabled="!mango.isAvailable">
-          <a style=" text-decoration: none;"
-  :href="`https://api.whatsapp.com/send/?phone=6285889168150&text=Hello,%20I’d%20like%20to%20ask%20some%20questions%20about%20the%20availability%20of%20${mango.name}`"
-><b :class="mango.isAvailable ? 'text-light' : ''" >{{ mango.isAvailable ? 'Buy Now' : 'Out of Stocks' }}</b>
-          
-</a>
-          
-        </button>
+                  <button class="btn btn-light ms-1" :class="mango.isAvailable ? 'bg-color3' : 'bg-color4'"
+                    :disabled="!mango.isAvailable">
+                    <a style=" text-decoration: none;"
+                      :href="`https://api.whatsapp.com/send/?phone=6285889168150&text=Hello,%20I’d%20like%20to%20ask%20some%20questions%20about%20the%20availability%20of%20${mango.name}`"><b
+                        :class="mango.isAvailable ? 'text-light' : ''">
+                        {{ mango.isAvailable ? 'Buy Now' : 'Out of Stocks' }}</b>
+
+                    </a>
+
+                  </button>
                 </div>
               </div>
             </div>
@@ -297,12 +290,12 @@
         searchText: null,
         isNotSearched: true,
         copyrightText: 'Muhammad Ziyad Al Maududi - 2025',
-        language:'id',
+        language: 'id',
         ready: [
           'Arumanis',
           'Manalagi'
         ],
-        sortedMangos:[],
+        sortedMangos: [],
         mangos: [
           {
             name: "Arumanis",
@@ -417,7 +410,7 @@
       },
 
       sortMangos() {
-        this.sortedMangos=this.mangos
+        this.sortedMangos = this.mangos
           .map(mango => ({
             ...mango,
             isAvailable: this.ready.includes(mango.name) // remove "Mangga " prefix when checking
@@ -455,16 +448,16 @@
         return stations.filter(filter)
       }
     },
-  watch: {
-    language(newLanguage) {
-      localStorage.language = newLanguage;
-    }
-  },
+    watch: {
+      language(newLanguage) {
+        localStorage.language = newLanguage;
+      }
+    },
     mounted() {
 
-    if (localStorage.language) {
-      this.language = localStorage.language;
-    }
+      if (localStorage.language) {
+        this.language = localStorage.language;
+      }
       // this.fetchData()
       this.sortMangos()
     }
